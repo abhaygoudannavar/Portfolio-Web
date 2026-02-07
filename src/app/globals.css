@@ -97,4 +97,233 @@ body {
   .canvas-overlay-mode svg {
     pointer-events: auto;
   }
+
+  /* Floating orb animations */
+  .animate-float-slow {
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float 15s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float 10s ease-in-out infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 30s linear infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .animate-ping-slow {
+    animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-30px) translateX(15px);
+  }
+  50% {
+    transform: translateY(-15px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-40px) translateX(20px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* 3D Perspective */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* 3D Cube Styles */
+.cube-container {
+  width: 120px;
+  height: 120px;
+  transform-style: preserve-3d;
+  animation: float 8s ease-in-out infinite;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 20s linear infinite;
+}
+
+.cube-face {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  background: rgba(6, 182, 212, 0.05);
+  backdrop-filter: blur(2px);
+}
+
+.cube-front { transform: translateZ(60px); }
+.cube-back { transform: rotateY(180deg) translateZ(60px); }
+.cube-right { transform: rotateY(90deg) translateZ(60px); }
+.cube-left { transform: rotateY(-90deg) translateZ(60px); }
+.cube-top { transform: rotateX(90deg) translateZ(60px); }
+.cube-bottom { transform: rotateX(-90deg) translateZ(60px); }
+
+/* Small Cube */
+.cube-container-small {
+  width: 60px;
+  height: 60px;
+  transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.cube-small {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 15s linear infinite reverse;
+}
+
+.cube-face-small {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  background: rgba(168, 85, 247, 0.05);
+  backdrop-filter: blur(2px);
+}
+
+.cube-front-small { transform: translateZ(30px); }
+.cube-back-small { transform: rotateY(180deg) translateZ(30px); }
+.cube-right-small { transform: rotateY(90deg) translateZ(30px); }
+.cube-left-small { transform: rotateY(-90deg) translateZ(30px); }
+.cube-top-small { transform: rotateX(90deg) translateZ(30px); }
+.cube-bottom-small { transform: rotateX(-90deg) translateZ(30px); }
+
+/* 3D Rings */
+.ring-container {
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  animation: rotateRings 30s linear infinite;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.ring-1 {
+  width: 300px;
+  height: 300px;
+  top: 0;
+  left: 0;
+  border-color: rgba(6, 182, 212, 0.2);
+  transform: rotateX(75deg);
+  animation: pulseRing 4s ease-in-out infinite;
+}
+
+.ring-2 {
+  width: 250px;
+  height: 250px;
+  top: 25px;
+  left: 25px;
+  border-color: rgba(168, 85, 247, 0.2);
+  transform: rotateX(75deg) rotateZ(30deg);
+  animation: pulseRing 4s ease-in-out infinite 0.5s;
+}
+
+.ring-3 {
+  width: 200px;
+  height: 200px;
+  top: 50px;
+  left: 50px;
+  border-color: rgba(236, 72, 153, 0.2);
+  transform: rotateX(75deg) rotateZ(60deg);
+  animation: pulseRing 4s ease-in-out infinite 1s;
+}
+
+/* Grid Floor */
+.grid-floor {
+  background: 
+    linear-gradient(to bottom, transparent 0%, rgba(6, 182, 212, 0.1) 100%),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: center top;
+}
+
+/* Keyframe Animations */
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes rotateRings {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(180deg) rotateZ(360deg);
+  }
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    opacity: 0.3;
+    transform: rotateX(75deg) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: rotateX(75deg) scale(1.05);
+  }
 }

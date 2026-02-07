@@ -1,0 +1,106 @@
+---
+title: "Building AI Game Agents with Google DeepMind's OpenSpiel"
+publishedAt: "2024-07-20"
+summary: "How I got involved in contributing to OpenSpiel, a framework for research in game theory and reinforcement learning."
+author: "Abhay Goudannavar"
+tags:
+  [
+    "ai",
+    "game-development",
+    "reinforcement-learning",
+    "deepmind",
+    "open-source",
+  ]
+---
+
+# Building AI Game Agents with OpenSpiel
+
+Have you ever wondered how AI learns to play games like Chess, Go, or Poker? My journey into this fascinating world began when I started contributing to **OpenSpiel**, Google DeepMind's open-source framework for game-playing AI research.
+
+## What is OpenSpiel?
+
+OpenSpiel is a collection of environments and algorithms for research in general reinforcement learning and search/planning in games. It's the same technology that powers some of DeepMind's groundbreaking AI achievements.
+
+The framework supports:
+
+- **60+ game implementations**: From Tic-Tac-Toe to Poker to complex board games
+- **Multiple AI algorithms**: MCTS, CFR, Deep RL, and more
+- **Research-grade quality**: Used by AI researchers worldwide
+
+## Why Games Matter for AI
+
+Games are the perfect testbed for AI because they provide:
+
+1. **Clear objectives**: Win conditions make success measurable
+2. **Controlled environments**: Perfect for reproducible experiments
+3. **Varying complexity**: From simple to extremely complex scenarios
+4. **Strategic thinking**: Games require planning, adaptation, and reasoning
+
+## My Contributions
+
+### Learning C++ and Python for AI
+
+OpenSpiel is primarily written in C++ with Python bindings. This gave me the opportunity to:
+
+- Work with high-performance C++ code
+- Understand how game simulations work at a low level
+- Learn about reinforcement learning algorithms
+
+### Understanding Game Theory
+
+Contributing to OpenSpiel introduced me to concepts like:
+
+- **Nash Equilibrium**: The optimal strategy when all players are rational
+- **Minimax Algorithm**: Decision making in zero-sum games
+- **Monte Carlo Tree Search**: How AlphaGo explores possible moves
+
+### Documentation and Examples
+
+I helped improve documentation and examples to make the framework more accessible to newcomers in the AI/ML community.
+
+## A Simple Example: Tic-Tac-Toe
+
+Here's how easy it is to create a game simulation in OpenSpiel:
+
+```python
+import pyspiel
+
+# Load the game
+game = pyspiel.load_game("tic_tac_toe")
+
+# Create a state
+state = game.new_initial_state()
+
+# Play a random game
+while not state.is_terminal():
+    legal_actions = state.legal_actions()
+    action = random.choice(legal_actions)
+    state.apply_action(action)
+    print(state)
+```
+
+## What I Learned
+
+1. **Systems Programming**: Understanding how to write efficient, performance-critical code
+2. **AI Fundamentals**: Deep diving into reinforcement learning and game theory
+3. **Open Source Collaboration**: Working with researchers from around the world
+4. **Research Methodology**: How cutting-edge AI research is conducted
+
+## Getting Started
+
+If you're interested in AI and games, here's how to begin:
+
+1. Install OpenSpiel: `pip install open_spiel`
+2. Check out the [GitHub repository](https://github.com/google-deepmind/open_spiel)
+3. Start with simple games like Tic-Tac-Toe or Connect Four
+4. Experiment with different algorithms
+
+## Conclusion
+
+Contributing to OpenSpiel has been one of the most rewarding experiences in my open-source journey. It combines my interests in AI, game development, and systems programming into one exciting project.
+
+If you're passionate about AI and want to understand how machines learn to play games, I encourage you to explore OpenSpiel. Who knows, you might contribute to the next breakthrough in game-playing AI!
+
+---
+
+_Interested in AI game development? Let's connect and discuss!_
