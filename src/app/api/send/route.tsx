@@ -26,11 +26,11 @@ export async function POST(req: Request) {
       from: "Porfolio <onboarding@resend.dev>",
       to: [config.email],
       subject: "Contact me from portfolio",
-      react: EmailTemplate({
-        fullName: zodData.fullName,
-        email: zodData.email,
-        message: zodData.message,
-      }),
+      react: <EmailTemplate
+        fullName={zodData.fullName}
+        email={zodData.email}
+        message={zodData.message}
+      />,
     });
 
     if (resendError) {
