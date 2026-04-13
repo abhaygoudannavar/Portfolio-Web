@@ -34,7 +34,7 @@ const config = {
     return this.site + "/assets/seo/og-image.png";
   },
   social: {
-    linkedin: "https://www.linkedin.com/in/abhay-goudannavar-a88a01381/",
+    linkedin: "https://www.linkedin.com/in/abhay-goudannavar-023118403",
     instagram: "https://www.instagram.com/abhaysgoudannavar/",
     github: "https://github.com/abhaygoudannavar",
   },
